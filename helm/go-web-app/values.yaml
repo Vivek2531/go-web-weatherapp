@@ -1,0 +1,26 @@
+# Default values for go-web-app
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: vivekinturi/go-web-app
+  pullPolicy: IfNotPresent
+  tag: "v7"
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8000
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  hosts:
+    - host: cloudopsprojects.com
+      paths:
+        - path: /
+          pathType: Prefix
