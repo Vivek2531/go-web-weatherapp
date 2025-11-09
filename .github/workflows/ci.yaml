@@ -39,7 +39,7 @@ jobs:
       - name: run golangci-lint
         uses: golangci/golangci-lint-action@v3
         with:
-          version: latest
+          version: 1.61.0
 
   push:
     runs-on: ubuntu-latest
@@ -79,13 +79,13 @@ jobs:
           
       - name: Update Helm chart image tag 
         run: |
-          sed -i 's/tag: ".*"/tag: "${{github.run_id}}"/' Helm/go-web-app/values.yaml
+          sed -i 's/tag: ".*"/tag: "${{github.run_id}}"/' helm/go-web-app/values.yaml
 
       - name: Commit and push changes
         run: |
           git config --global user.name "Vivek Inturi"
           git config --global user.email "vivekinturi27@gmail.com"
-          git add Helm/go-web-app/values.yaml
-          git commit -m "Update Helm chart image tag to ${{github.run_id}}"
+          git add helm/go-web-app/values.yaml
+          git commit -m "Update helm chart image tag to ${{github.run_id}}"
           git push origin main  
     
