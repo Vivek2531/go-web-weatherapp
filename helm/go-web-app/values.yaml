@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: vivekinturi/go-web-app
   pullPolicy: IfNotPresent
-  tag: "v7"
+  tag: "19216361858"
 
 service:
   type: ClusterIP
