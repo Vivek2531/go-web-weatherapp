@@ -15,12 +15,12 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: Set up Go 1.25
-        uses: actions/setup-go@v2
+      - name: Set up Go
+        uses: actions/setup-go@v4
         with:
-          version: v1.25
+          go-version: '1.22'
 
       - name: Build Go application
         run: go build -o go-web-app
@@ -48,7 +48,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       -
         name: Login to DockerHub
         uses: docker/login-action@v3
@@ -84,7 +84,7 @@ jobs:
       - name: Commit and push changes
         run: |
           git config --global user.name "Vivek Inturi"
-          git config --global user.email ""
+          git config --global user.email "vivekinturi27@gmail.com"
           git add Helm/go-web-app/values.yaml
           git commit -m "Update Helm chart image tag to ${{github.run_id}}"
           git push origin main  
