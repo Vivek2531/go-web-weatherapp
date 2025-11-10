@@ -1,77 +1,73 @@
-# Weather Application
+# Go Web Weather App
 
-A simple, lightweight web application built with Go to demonstrate cloud-native development and deployment practices.
+A simple weather application built with Go, deployed on Kubernetes with automated CI/CD.
 
-## Overview
+![Home Page](docs/images/home-page.png)
 
-This is a minimal web application that provides a weather information interface. It's designed to showcase containerization, Kubernetes deployment, and modern development workflows.
+![About Page](docs/images/about-page.png)
 
-## Technology Stack
+## What is this?
 
-- **Backend**: Go (Golang) - net/http package
-- **Frontend**: HTML5, CSS3, JavaScript
-- **Container**: Docker (multi-stage builds)
-- **Deployment**: Kubernetes (AWS EKS)
+A lightweight web application that displays weather information. It demonstrates a complete DevOps workflow from development to production deployment with HTTPS.
 
-## Quick Start
+**Live Demo:** https://cloudopsprojects.com
 
-### Local Development
+## Technologies Used
+
+- **Go 1.22** - Backend application
+- **Docker** - Containerization with multi-stage builds
+- **Kubernetes** - Container orchestration on AWS EKS
+- **Helm** - Kubernetes package manager
+- **NGINX Ingress** - Load balancing and routing
+- **cert-manager** - Automatic SSL certificates from Let's Encrypt
+- **GitHub Actions** - CI/CD automation
+
+## Local Development
 
 ```bash
+# Run locally
 go run main.go
+
+# Visit http://localhost:8000/home
 ```
 
-Application runs on `http://localhost:8000`
-
-### Docker
+## Build & Deploy
 
 ```bash
-# Build
-docker build -t weather-app .
+# Build Docker image
+docker build -t go-web-app .
 
-# Run
-docker run -p 8000:8000 weather-app
-```
-
-### Kubernetes
-
-```bash
+# Deploy to Kubernetes
 kubectl apply -f k8s/manifests/
+
+# Or use Helm
+helm install go-web-app ./helm/go-web-app
 ```
+
+## CI/CD
+
+The GitHub Actions pipeline automatically:
+- Builds and tests the application
+- Creates Docker images and pushes to DockerHub
+- Updates Helm charts with new versions
+
+Every push to `main` triggers the full pipeline.
 
 ## Project Structure
 
 ```
-.
-├── main.go              # Application server
-├── main_test.go         # Tests
-├── go.mod               # Go dependencies
-├── Dockerfile           # Container build
-├── static/              # HTML files
-│   ├── home.html
-│   └── about.html
-└── k8s/                 # Kubernetes manifests
-    └── manifests/
-        ├── deployment.yaml
-        ├── service.yaml
-        └── ingress.yaml
+├── main.go                 # Application code
+├── static/                 # HTML files
+├── Dockerfile              # Container configuration
+├── k8s/manifests/          # Kubernetes deployment files
+├── helm/go-web-app/        # Helm chart
+└── .github/workflows/      # CI/CD pipeline
 ```
-
-## Features
-
-- Lightweight and fast
-- Containerized deployment
-- Kubernetes-ready
-- Simple and clean interface
-
-## Configuration
-
-- Port: 8000
-- Base image: distroless/base
-- Build image: golang:1.25.4-alpine3.22
 
 ## License
 
 MIT
 
+## Author
 
+Vivek Inturi
