@@ -15,10 +15,21 @@ func aboutPage(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "static/about.html")
 }
 
+func rootRedirect(w http.ResponseWriter, r *http.Request) {
+	// Redirect root path to /home
+	if r.URL.Path == "/" {
+		http.Redirect(w, r, "/home", http.StatusMovedPermanently)
+		return
+	}
+	// Handle 404 for other paths
+	http.NotFound(w, r)
+}
+
 func main() {
 	// Weather Dashboard - A cloud-native web application
 	// Built with Go, Docker, and Kubernetes
 	
+	http.HandleFunc("/", rootRedirect)
 	http.HandleFunc("/home", homePage)
 	http.HandleFunc("/about", aboutPage)
 

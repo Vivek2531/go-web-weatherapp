@@ -1,10 +1,10 @@
-From golang:1.25.4-alpine3.22 as base
+FROM golang:1.25.4-alpine3.22 AS base
 
 WORKDIR /app
 
 COPY go.mod .
 
-RUN go mod download
+RUN go mod download 
 
 COPY . .
 
