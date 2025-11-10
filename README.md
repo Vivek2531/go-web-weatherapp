@@ -2,9 +2,14 @@
 
 A simple weather application built with Go, deployed on Kubernetes with automated CI/CD.
 
-![Home Page](docs/images/home-page.png)
+![Home Page]
 
-![About Page](docs/images/about-page.png)
+<img width="2648" height="1600" alt="image" src="https://github.com/user-attachments/assets/12d6b92b-4bb4-46e6-8f5d-e0996c505e17" />
+
+![About Page]
+
+<img width="1308" height="474" alt="image" src="https://github.com/user-attachments/assets/6a2fa242-f37f-49b0-b7d0-f8c2b436cd94" />
+
 
 ## What is this?
 
