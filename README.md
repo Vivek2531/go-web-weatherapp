@@ -11,11 +11,9 @@ A simple weather application built with Go, deployed on Kubernetes with automate
 <img width="1308" height="474" alt="image" src="https://github.com/user-attachments/assets/6a2fa242-f37f-49b0-b7d0-f8c2b436cd94" />
 
 
-## What is this?
+## About the Project
 
 A lightweight web application that displays weather information. It demonstrates a complete DevOps workflow from development to production deployment with HTTPS.
-
-**Live Demo:** https://cloudopsprojects.com
 
 ## Technologies Used
 
