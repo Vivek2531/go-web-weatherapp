@@ -5,15 +5,5 @@ run:
 linters:
   disable-all: true
   enable:
-    - gofmt
     - govet
     - staticcheck
-
-linters-settings:
-  govet:
-    check-shadowing: false
-  
-issues:
-  exclude-use-default: false
-  max-issues-per-linter: 0
-  max-same-issues: 0
